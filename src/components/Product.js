@@ -2,13 +2,22 @@ import React from 'react';
 class Product extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isActive : true
+    }
   }
 
   showProduct = (product) => {
       console.log(product)
   }
-
+  resetState = () => {
+    this.setState({
+      isActive :!this.state.isActive
+    })
+  }
+  
   render() {
+    console.log('thanhdc')
     return (
           <div>
               <form>
@@ -43,6 +52,8 @@ class Product extends React.Component {
                     }
                 </tbody>
                 </table>
+                  <h3>{ this.state.isActive ? 'true' : 'false' }</h3>
+                <button onClick={() => this.resetState() }>reset</button>
         </div>
     );
   }
