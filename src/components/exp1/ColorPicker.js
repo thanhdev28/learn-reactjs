@@ -3,16 +3,32 @@ class ColorPicker extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      colors: ['red', 'green', 'blue', '#ccc']
+    }
+  }
+  showColor = (color) => {
+      return {
+          backgroundColor: color,
+          marginLeft: '10px',
+          padding: '10px',
+          cursor: 'pointer'
+      }
+  }
+  activeColor = (color) => {
+      this.props.onChooseColor(color)
   }
   render() {
-    console.log('thanhdc')
     return (
         <div className="card">
-        <h5 className="card-header">Featured</h5>
+        <h5 className="card-header">Color picker</h5>
         <div className="card-body">
-          <h5 className="card-title">Special title treatment</h5>
-          <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" className="btn btn-primary">Go somewhere</a>
+          {
+            this.state.colors.map((color, i) => {
+            return <span key={i} onClick={ () => this.activeColor(color) } style={ this.showColor(color) }></span>
+            })
+          }
+         
         </div>
       </div>
     );

@@ -5,7 +5,6 @@ class Reset extends React.Component {
     super(props);
   }
   render() {
-    console.log('thanhdc')
     return (
         <div >
            <button className="btn btn-primary">Reset</button>
